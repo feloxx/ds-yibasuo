@@ -17,6 +17,17 @@ func AnsibleInit() {
 	}
 	if len(res) < 1 {
 		logs.Info("Initializing, may take several minutes, please wait...")
+		err := exec.Command("sudo", "systemctl", "stop", "firewalld.service").Run()
+		if err != nil {
+			logs.Error(err)
+			os.Exit(0)
+		}
+		err = exec.Command("sudo", "systemctl", "disable", "firewalld.service").Run()
+		if err != nil {
+			logs.Error(err)
+			os.Exit(0)
+		}
+
 		init := exec.Command("/bin/bash", "-c", "sh init.sh > init.log 2>&1")
 		init.Dir = "./offline"
 		init.Run()
