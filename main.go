@@ -4,6 +4,7 @@ import (
 	"ds-yibasuo/models"
 	_ "ds-yibasuo/routers"
 	"ds-yibasuo/utils/blotdb"
+	"ds-yibasuo/utils/common"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/plugins/cors"
@@ -29,6 +30,7 @@ func main() {
 
 	// 初始化
 	blotdb.BlotInit()
+	common.AnsibleInit()
 	models.UserInit()
 
 	// 启动

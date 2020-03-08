@@ -59,26 +59,27 @@
     - name: mkdir
       file: name={{ deploy_dir }} state=directory mode=755
 
-- name: deploy database-pre
-  become: yes
-  become_method: sudo
-  gather_facts: false
-  any_errors_fatal: true
-  hosts: db_servers
-  tags:
-    - db-pre
-  tasks:
-    - name: install packages required by database
-      yum:
-        name:
-          - net-tools
-          - bash-completion
-          - gcc
-          - unzip
-          - perl-Data-Dumper
-          - libaio-devel
-        state: latest
-      async: 90
+# temporarily offline
+#- name: deploy database-pre
+#  become: yes
+#  become_method: sudo
+#  gather_facts: false
+#  any_errors_fatal: true
+#  hosts: db_servers
+#  tags:
+#    - db-pre
+#  tasks:
+#    - name: install packages required by database
+#      yum:
+#        name:
+#          - net-tools
+#          - bash-completion
+#          - gcc
+#          - unzip
+#          - perl-Data-Dumper
+#          - libaio-devel
+#        state: latest
+#      async: 90
 
 - name: deploy db
   become: yes
@@ -91,29 +92,30 @@
   roles:
     - database
 
-- name : deploy nginx-pre
-  become: yes
-  become_method: sudo
-  gather_facts: false
-  any_errors_fatal: true
-  hosts: nginx_servers
-  tags:
-    - nginx-pre
-  tasks:
-    - name: install packages required by nginx
-      yum:
-        name:
-          - cmake
-          - openssl
-          - openssl-devel
-          - pcre
-          - pcre-devel
-          - zlib
-          - zlib-devel
-          - gd-devel
-          - libxml2-devel
-        state: latest
-      async: 90
+# Temporarily offline
+#- name : deploy nginx-pre
+#  become: yes
+#  become_method: sudo
+#  gather_facts: false
+#  any_errors_fatal: true
+#  hosts: nginx_servers
+#  tags:
+#    - nginx-pre
+#  tasks:
+#    - name: install packages required by nginx
+#      yum:
+#        name:
+#          - cmake
+#          - openssl
+#          - openssl-devel
+#          - pcre
+#          - pcre-devel
+#          - zlib
+#          - zlib-devel
+#          - gd-devel
+#          - libxml2-devel
+#        state: latest
+#      async: 90
 
 - name: deploy nginx
   become: yes

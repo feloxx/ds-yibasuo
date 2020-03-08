@@ -15,7 +15,7 @@ var (
 
 func BlotInit() {
 	logs.Info("Init blotdb")
-	Db, _ = NewBoltManager(DbUrl, []string{"host", "cluster", "config", "user", "devops"})
+	Db, _ = NewBoltManager(DbUrl, []string{"host", "cluster", "config", "user", "devops", "init"})
 }
 
 //BlotDB的管理类
