@@ -36,11 +36,23 @@ sudo rpm -ivh $otherPath/perl-Data-Dumper-2.145-3.el7.x86_64.rpm
 sudo rpm -ivh $otherPath/unzip-6.0-20.el7.x86_64.rpm
 sudo rpm -ivh $otherPath/zlib-1.2.7-18.el7.x86_64.rpm
 
-sudo rpm -ivh $otherPath/gd-devel-2.0.35-26.el7.x86_64.rpm $otherPath/libuuid-devel-2.23.2-61.el7.x86_64.rpm $otherPath/libXpm-devel-3.5.12-1.el7.x86_64.rpm $otherPath/fontconfig-devel-2.13.0-4.3.el7.x86_64.rpm $otherPath/expat-devel-2.1.0-10.el7_3.x86_64.rpm $otherPath/gd-devel-2.0.35-26.el7.x86_64.rpm
+sudo rpm -ivh $otherPath/libuuid-devel-2.23.2-61.el7.x86_64.rpm $otherPath/libXpm-devel-3.5.12-1.el7.x86_64.rpm $otherPath/fontconfig-devel-2.13.0-4.3.el7.x86_64.rpm $otherPath/expat-devel-2.1.0-10.el7_3.x86_64.rpm $otherPath/gd-devel-2.0.35-26.el7.x86_64.rpm
+if [ `rpm -qa | grep gd-devel | wc -l` -eq 0 ];then
+  echo "error"
+  exit 0
+fi
 
 sudo rpm -ivh $otherPath/libverto-devel-0.2.5-4.el7.x86_64.rpm $otherPath/libsepol-devel-2.5-10.el7.x86_64.rpm $otherPath/libselinux-devel-2.5-14.1.el7.x86_64.rpm $otherPath/libcom_err-devel-1.42.9-16.el7.x86_64.rpm $otherPath/krb5-devel-1.15.1-37.el7_6.x86_64.rpm $otherPath/keyutils-libs-devel-1.5.8-3.el7.x86_64.rpm $otherPath/openssl-devel-1.0.2k-19.el7.x86_64.rpm
+if [ `rpm -qa | grep openssl-devel | wc -l` -eq 0 ];then
+  echo "error"
+  exit 0
+fi
 
 sudo rpm -ivh $otherPath/xz-devel-5.2.2-1.el7.x86_64.rpm $otherPath/libxml2-devel-2.9.1-6.el7_2.3.x86_64.rpm
+if [ `rpm -qa | grep libxml2-devel | wc -l` -eq 0 ];then
+  echo "error"
+  exit 0
+fi
 
 # todo 判断包是否都安装全
 
