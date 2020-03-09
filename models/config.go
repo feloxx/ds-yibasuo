@@ -438,7 +438,7 @@ func SelectConfigList(page int, typ string) (*ConfigInfoResult, error) {
 		}
 	}
 	if len(fuck) == 0 {
-		return nil, errors.New("查询错误 或者 没有内容！")
+		return nil, errors.New("null")
 	}
 
 	fucks := slidingConfig(fuck, 10)
