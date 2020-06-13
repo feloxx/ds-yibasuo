@@ -87,8 +87,8 @@ func (m *DevopsInfo) UpdateStatus(exe ExecuteType, cluster *ClusterInfo) {
 			}
 			break
 		} else {
-			// 没结束，暂停10秒再来一次
-			time.Sleep(10 * time.Second)
+			// 没结束，暂停1秒再来一次
+			time.Sleep(1 * time.Second)
 		}
 	}
 }

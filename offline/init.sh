@@ -1,5 +1,12 @@
 #!/bin/bash
 
+if ansible --version >/dev/null 2>&1; then
+  echo "ansible ok"
+  exit 0
+else
+  echo "ansible start offline install"
+fi
+
 currentPath=$(cd `dirname $0`; pwd)
 
 otherPath=$currentPath/o
